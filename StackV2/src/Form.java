@@ -1,3 +1,10 @@
+/*
+ * Created by: Ben Motz
+ * Created on: 6-03-2020
+ * Created for: ICS4U Programming
+ * Daily Assignment – Day 16-Stack
+ * This program does some stuff
+ */
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
