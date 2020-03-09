@@ -7,4 +7,5 @@ public class Stack {
         listofvals.add(enteredval);
     }
 
+    public void Pop(){listofvals.remove(listofvals.size()-1);}
 }

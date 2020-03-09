@@ -16,13 +16,16 @@ public class Form {
     private JButton btnEnter;
     private JList list1;
     private JPanel panel1;
+    private JButton btnPop;
     private DefaultListModel<String> model= new DefaultListModel<>();
     private Stack stackclass;
+    public int buttonpresses=0;
 
     public Form() {
 
         //sets list as model
         list1.setModel(model);
+        stackclass = new Stack();
 
         btnEnter.addActionListener(new ActionListener() {
             @Override
@@ -35,6 +38,16 @@ public class Form {
 
                 //adds to stack
                 stackclass.Push(enteredinfo);
+            }
+        });
+        btnPop.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                //pops info
+                stackclass.Pop();
+
+                //removes items from list
+                model.remove(model.size()-1);
             }
         });
     }
