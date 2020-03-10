@@ -33,21 +33,43 @@ public class Form {
                 //gets info
                 String enteredinfo = txtValue.getText();
 
-                //adds stuff to model
-                model.addElement(enteredinfo);
+                try {
+                    //trys to parse the int
+                    int infoentered=Integer.parseInt(enteredinfo);
 
-                //adds to stack
-                stackclass.Push(enteredinfo);
+                    if (enteredinfo==null){
+                        //displays message
+                        JOptionPane.showMessageDialog(null, "Please enter valid information");
+                    }
+                    else {
+                        //adds stuff to model
+                        model.addElement(enteredinfo);
+
+                        //adds to stack
+                        stackclass.Push(enteredinfo);
+                    }
+                }catch(Exception e1){
+                    //displays message
+                    JOptionPane.showMessageDialog(null, "Please enter valid information");
+                }
+
             }
         });
         btnPop.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                //pops info
-                stackclass.Pop();
+                //error checking
+                if (model.size()==0){
+                    //displays message
+                    JOptionPane.showMessageDialog(null, "The stack is empty");
+                }
+                else {
+                    //pops info
+                    stackclass.Pop();
 
-                //removes items from list
-                model.remove(model.size()-1);
+                    //removes items from list
+                    model.remove(model.size() - 1);
+                }
             }
         });
     }
