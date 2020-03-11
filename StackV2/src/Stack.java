@@ -7,5 +7,12 @@ public class Stack {
         listofvals.add(enteredval);
     }
 
+    //pops stuff from the stack
     public void Pop(){listofvals.remove(listofvals.size()-1);}
+
+    //determines the peak value
+    public void Peek(){listofvals.get(listofvals.size()-1);}
+
+    //clears stack
+    public void Clear(){listofvals.clear();}
 }

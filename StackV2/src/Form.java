@@ -17,6 +17,10 @@ public class Form {
     private JList list1;
     private JPanel panel1;
     private JButton btnPop;
+    private JButton btnPeekTopVal;
+    private JButton btnClear;
+    private JLabel lblPeekValue;
+    private JLabel lblpopval;
     private DefaultListModel<String> model= new DefaultListModel<>();
     private Stack stackclass;
     public int buttonpresses=0;
@@ -67,9 +71,36 @@ public class Form {
                     //pops info
                     stackclass.Pop();
 
+                    lblpopval.setText("Poped Value: "+ model.get(model.size()-1));
+
                     //removes items from list
                     model.remove(model.size() - 1);
                 }
+            }
+        });
+        btnPeekTopVal.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                //checks to see if the stack is full
+                if (model.size()>0) {
+                    //determines the peek
+                    stackclass.Peek();
+
+                    //sets text
+                    lblPeekValue.setText("The peak value is: " + model.get(model.size() - 1));
+                } else{
+                    //if there is an error
+                    JOptionPane.showMessageDialog(null, "The stack is empty");
+                }
+            }
+        });
+        btnClear.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                //if the user clears the information
+                stackclass.Clear();
+                model.clear();
+                lblPeekValue.setText("The peak value is: ");
             }
         });
     }
