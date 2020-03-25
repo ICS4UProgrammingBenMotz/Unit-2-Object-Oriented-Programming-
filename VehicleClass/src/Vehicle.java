@@ -22,10 +22,23 @@ public class Vehicle {
         return MaxSpeed;
     }
 
-    public String OuputInfo() {
-        String outputinfo="Plate Number: " + PlateNumber + "\n Car Colour: " + Colour + "\n Doors: "+ numberofdo + "\n Speed: " + Speed + "\n Max Speed: "+ MaxSpeed;
+    //output for car
+    public String OutputInfoCar() {
+        String outputinfocar="Car:"+"\nPlate Number: " + PlateNumber + "\n Car Colour: " + Colour + "\n Doors: "+ numberofdo + "\n Speed: " + Speed + "\n Max Speed: "+ MaxSpeed;
 
-        return outputinfo;
+        return outputinfocar;
+    }
+
+    //output for truck
+    public String OutputInfoTruck(){
+        String ouputinfotruck = "Truck:"+"\nPlate Number: " + PlateNumber + "\n Truck Colour: " + Colour + "\n Doors: "+ numberofdo +"\n Number of wheels: "+ numberofwheels +"\n Length: " + lengthoftruck + "\n Speed: " + Speed + "\n Max Speed: "+ MaxSpeed;
+        return ouputinfotruck;
+    }
+
+    //output for bike
+    public String OutputInfoBike(){
+        String outputinfobike= "Bike:"+ "\n Bike Colour: " + Colour + "\n Number of wheels: "+ numberofwheels + "\n Number of seats: " + numbofseats + "\n Speed: " + Speed + "\n Max Speed: "+ MaxSpeed;
+        return outputinfobike;
     }
 
     //if user accelerates
@@ -40,6 +53,15 @@ public class Vehicle {
             Speed -= 5;
         }
     }
+
+    //for number of wheels for the truck or bike
+    public int numberofwheels;
+
+    //for the length of the truck
+    public int lengthoftruck;
+
+    //for bik seats
+    public int numbofseats;
 
 
 }
