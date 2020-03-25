@@ -13,6 +13,10 @@ public class Main {
 
     static Vehicle vehicleclass = new Vehicle();
 
+    static Bike bikeclass = new Bike();
+
+    static Truck truckclass = new Truck();
+
     public static void main(String[] args) {
         //declare variables
         String outputstuff;
@@ -39,22 +43,17 @@ public class Main {
             //if the selected vehicle is  a truck
             if (cartruckorbike.equals("Truck")){
                 System.out.println("Number of Wheels: ");
-                vehicleclass.numberofwheels=Integer.parseInt(scanner.nextLine());
+                truckclass.numberofwheels=Integer.parseInt(scanner.nextLine());
 
                 System.out.println("Length: ");
-                vehicleclass.lengthoftruck=Integer.parseInt(scanner.nextLine());
+                truckclass.lengthoftruck=Integer.parseInt(scanner.nextLine());
             }
         }
     //if it is a bike
     else if (cartruckorbike.equals("Bike")){
         System.out.println("Vehicle Colour: ");
-        vehicleclass.Colour=scanner.nextLine();
+        bikeclass.Colour=scanner.nextLine();
 
-        System.out.println("Number of Wheels: ");
-        vehicleclass.numberofwheels=Integer.parseInt(scanner.nextLine());
-
-        System.out.println("Number of seats: ");
-        vehicleclass.numbofseats=Integer.parseInt(scanner.nextLine());
 
     }
 
@@ -84,10 +83,10 @@ public class Main {
         outputstuff = vehicleclass.OutputInfoCar();
     }
     else if (cartruckorbike.equals("Truck")){
-        outputstuff = vehicleclass.OutputInfoTruck();
+        outputstuff = truckclass.OutputInfoTruck();
     }
     else {
-        outputstuff=vehicleclass.OutputInfoBike();
+        outputstuff=bikeclass.OutputInfoBike();
     }
 
         System.out.print(outputstuff);
