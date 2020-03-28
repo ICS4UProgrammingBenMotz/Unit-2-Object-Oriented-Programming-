@@ -38,6 +38,7 @@ public class BinarySearch {
 
         int length = valsarray.size();
 
+        //checks if this number is in the range of all the generated numbers
         if (desval > (int) valsarray.get(length-1) || desval < (int) valsarray.get(0)){
             indexfound="This value does not exist in this number set";
         }
@@ -46,19 +47,23 @@ public class BinarySearch {
             minindex=0;
             midindex=(maxindex+minindex)/2;
 
+            //begins the search. Will loop through the arraylist until the value is found or if the middle index stays the same (The value will not exist)
             while (desval!=(int)valsarray.get(midindex) && prevmidindex!=midindex){
+                //sets the previous mid index to the current one
                 prevmidindex=midindex;
                 if (desval<(int) valsarray.get((midindex))){
+                    //sets the max index to the middle index
                     maxindex=midindex;
                 }
                 else{
+                    //sets the minindex to the middle index
                     minindex=midindex;
                 }
+                //changes the mid index
                 midindex= (maxindex+minindex)/2;
-                System.out.println(midindex);
-                System.out.println(prevmidindex);
             }
 
+            //returns the proper info based depending on if the value occurs in the array or not
             if (desval==(int)valsarray.get(midindex)){
                 indexfound= "This value is found at index: " + String.valueOf(midindex);
             }
@@ -69,7 +74,7 @@ public class BinarySearch {
         return indexfound;
     }
 
-    void Sort(ArrayList valuesarr)
+    public static void Sort(ArrayList valuesarr)
     {
         int length = valuesarr.size();
 
@@ -89,7 +94,7 @@ public class BinarySearch {
     }
 
     public BinarySearch() {
-        //sets list as model
+        //sets list as model and sets the size of the form
         list1.setModel(model);
         panel1.setPreferredSize( new Dimension(1300, 250));
 
@@ -99,9 +104,11 @@ public class BinarySearch {
         btnGenerateValues.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                //clears the list and the array
                 values.clear();
                 model.clear();
 
+                //adds the rand numbs to the jlist and the arraylist
                 for (int counter = 0; counter<= 249; counter++){
                     randomnumb= new Random().nextInt(1000)+1;
 
@@ -114,17 +121,23 @@ public class BinarySearch {
         btnSortValues.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                Sort(values);
-                model.clear();
+                if (values.isEmpty()){
+                    JOptionPane.showMessageDialog(null, "Please generate values first");
+                }
+                else {
+                    Sort(values);
+                    model.clear();
 
-                for (int counter=0; counter <=249; counter++){
-                    model.addElement(String.valueOf(values.get(counter)));
+                    for (int counter = 0; counter <= 249; counter++) {
+                        model.addElement(String.valueOf(values.get(counter)));
+                    }
                 }
             }
         });
         btnfindThisValue.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                //makes sure that the entered info is only ints and will be a number in the range of the generator
                 try {
                     desval= Integer.parseInt(txtdesiredval.getText());
 

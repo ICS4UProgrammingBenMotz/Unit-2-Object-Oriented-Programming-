@@ -55,7 +55,7 @@
           </grid>
         </constraints>
         <properties>
-          <text value="The value is found at: "/>
+          <text value="This value is found at index: "/>
         </properties>
       </component>
       <component id="2123e" class="javax.swing.JButton" binding="btnfindThisValue">
